@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'CoreDataStructures'
-  s.version          = '0.1.0'
+  s.version          = '0.1.1'
   s.summary          = 'CoreDataStructures is library of fundamental data structures written in Swift 4.0.'
 
 # This description is used to generate tags and improve search results.
@@ -21,22 +21,13 @@ Pod::Spec.new do |s|
 This cocoapod was created for fundamental data structures integration within iOS projects. Swift currently offers Arrays, Sets, and Dictionaries, but these may not be enough in some applications. 
                        DESC
 
-  s.homepage         = 'https://github.com/michaelcordero/CoreDataStructures'
-  # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
+  s.homepage         = 'https://github.com/kim-company/CoreDataStructures.git'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'michaelcordero' => 'michaelpetercordero@gmail.com' }
-  s.source           = { :git => 'https://github.com/michaelcordero/CoreDataStructures.git', :tag => s.version.to_s }
-  # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
+  s.source           = { :git => 'https://github.com/kim-company/CoreDataStructures.git', :tag => s.version.to_s }
 
-  s.ios.deployment_target = '11.0'
+  s.ios.deployment_target = '9.1'
 
   s.source_files = 'CoreDataStructures/Classes/**/*'
-  
-  # s.resource_bundles = {
-  #   'CoreDataStructures' => ['CoreDataStructures/Assets/*.png']
-  # }
 
-  # s.public_header_files = 'Pod/Classes/**/*.h'
-  # s.frameworks = 'UIKit', 'MapKit'
-  # s.dependency 'AFNetworking', '~> 2.3'
 end
