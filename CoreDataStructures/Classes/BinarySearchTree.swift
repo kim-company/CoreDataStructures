@@ -56,7 +56,7 @@ open class BinarySearchTree<T: Comparable> {
      The nodes hold references to sibling nodes, and parent node as well.
      */
     open class Node<T: Comparable>:Equatable  {
-        var value: T?
+        open var value: T?
         var left: Node<T>?
         var right: Node<T>?
         var parent: Node<T>?

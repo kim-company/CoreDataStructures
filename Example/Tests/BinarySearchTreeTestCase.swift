@@ -35,6 +35,13 @@ class BinarySearchTreeTestCase: XCTestCase {
     }
     
     // MARK: - Functional Tests
+    func testRetrieveValue() {
+        let testValue: Int = 3
+        let val = tree.get(testValue)
+        
+        XCTAssert(testValue == val?.value)
+    }
+    
     func testAddValidValue() {
         let testValue: Int = 32
         print("Existing values: \(tree.values())")
