@@ -35,6 +35,23 @@ class BinarySearchTreeTestCase: XCTestCase {
     }
     
     // MARK: - Functional Tests
+    
+    func testSearchString() {
+        let tree = BinarySearchTree<String>.init(rootNodeValue: "")
+        try! tree.put("hello")
+        try! tree.put("my")
+        try! tree.put("name")
+        try! tree.put("is")
+        try! tree.put("neuro")
+        
+        var val = tree.get("is")?.value
+        XCTAssertNotNil(val)
+        XCTAssertTrue(val == "is")
+        
+        val = tree.get("nigga")?.value
+        XCTAssertNil(val)
+    }
+    
     func testRetrieveValue() {
         let testValue: Int = 3
         let val = tree.get(testValue)
@@ -169,4 +186,56 @@ class BinarySearchTreeTestCase: XCTestCase {
 //            // Put the code you want to measure the time of here.
 //        }
     }
+    
+    // MARK: Test with custom structs
+    
+    private class TNode: Comparable {
+        
+        static func < (lhs: BinarySearchTreeTestCase.TNode, rhs: BinarySearchTreeTestCase.TNode) -> Bool {
+            return lhs.string < rhs.string
+        }
+        
+        static func == (lhs: BinarySearchTreeTestCase.TNode, rhs: BinarySearchTreeTestCase.TNode) -> Bool {
+            return lhs.string == rhs.string
+        }
+        
+        var string: String
+        var index: Int // another random field
+        
+        init(s: String, i: Int) {
+            string = s
+            index = i
+        }
+    }
+    
+    func testSearchTNode() {
+        let root = TNode.init(s: "", i: 0)
+        let tree = BinarySearchTree<TNode>.init(rootNodeValue: root)
+        
+        let n1 = TNode.init(s: "hello", i: 1)
+        let n2 = TNode.init(s: "my", i: 1)
+        let n3 = TNode.init(s: "name", i: 1)
+        let n4 = TNode.init(s: "is", i: 1)
+        let n5 = TNode.init(s: "neuro", i: 1)
+        
+        try! tree.put(n1)
+        try! tree.put(n2)
+        try! tree.put(n3)
+        try! tree.put(n4)
+        try! tree.put(n5)
+        
+        var val = tree.get(n1)?.value
+        XCTAssertNotNil(val)
+        XCTAssertTrue(val == n1)
+        
+        var n = TNode.init(s: "hello", i: -10)
+        val = tree.get(n)?.value
+        XCTAssertNotNil(val)
+        XCTAssertTrue(val == n1)
+        
+        n = TNode.init(s: "swift", i: -20)
+        val = tree.get(n)?.value
+        XCTAssertNil(val)
+    }
+    
 }
