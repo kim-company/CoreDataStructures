@@ -48,7 +48,7 @@ class BinarySearchTreeTestCase: XCTestCase {
         XCTAssertNotNil(val)
         XCTAssertTrue(val == "is")
         
-        val = tree.get("nigga")?.value
+        val = tree.get("comeon")?.value
         XCTAssertNil(val)
     }
     
